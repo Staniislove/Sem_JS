@@ -2,22 +2,43 @@
 <html>
 <head>
  <title>Погода</title>
- <link rel="stylesheet" type="text/css" href="styles.css">
+ <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
- <h1>Погода</h1>
- <div id="currentWeather">
-  <h2>Погода сейчас</h2>
-  <form id="searchForm">
-   <input type="text" id="cityInput" placeholder="Введите название города" required>
-   <button type="submit">Найти</button>
-  </form>
-  <div id="currentWeatherData"></div>
- </div>
- <div id="forecast">
-  <h2>8-дневный прогноз</h2>
-  <div id="forecastData"></div>
- </div>
- <script src="script.js"></script>
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="Логотип">
+      <p1>smile cloud</p1>
+    </div>
+    <div class="hello">
+      <p1>Привет, кто то там</p1>
+    </div>
+    <div class="logout">
+      <button>Выход</button>
+    </div>
+  </header>
+  <div class="main">
+    <form id="searchForm">
+        <input type="text" id="cityInput" placeholder="Введите название города" required>
+        <button type="submit">Найти</button>
+        <script src="upload.js"></script>
+    </form>
+    <div class = "container">
+      <div class = "current">
+        <div id="currentWeather">
+          <div id="currentWeatherData"></div>
+        </div>
+      </div>
+      <div class = "forec">
+        <div id="forecast">
+          <div id="forecastData"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+
+  </footer>
+  <script src="upload.js"></script>
 </body>
 </html>
