@@ -1,3 +1,17 @@
+html {
+  height: 100%;
+}
+
+body {
+  display:flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  margin: 0;
+  height: 100%;
+ }
+
 header {
     display: flex;
     justify-content: space-between;
@@ -5,6 +19,7 @@ header {
     background-color: #2c3e50;;
     padding: 10px;
     margin: 0;
+    margin-bottom: 10px;
   }
   
   .logo img {
@@ -33,20 +48,65 @@ header {
     cursor: pointer;
   }
 
-body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    margin: 0;  
+.main{
+  flex-grow: 1;
+  }
+
+footer{
+   display:flex;
+   justify-content: right;
+   align-items: center;
+   flex-shrink: 0;
+   margin-bottom: 0;
+   background-color: rgb(235, 235, 235);
+   height: 60px;
+   padding: 10px;
+  }
+
+   .git img {
+    height: 40px;
+   }
+
+   .git{
+    text-align: center;
+    cursor:pointer;
    }
    
-   h1, h2 {
+   .author{
+    font-size: 15px;
+    text-align: center;
+    margin-right: 5px;
+   }
+   
+   h1, h3 {
     color: #333;
    }
+
+   h1{
+    line-height: 40px;
+   }
+
+   h4{
+    color:#2c3e50;
+    font-size: 15px;
+   }
+
+   h2{
+    color:#2c58aa;
+    font-size: 15px;
+    font-weight:lighter;
+   }
    
-   form {
+   .searchLine{
+    display:flex;
+    align-items: center;
+    height:80px;
+    background-color: rgb(235, 235, 235);
     margin-bottom: 10px;
-    margin-top: 20px;
-    margin-left: 20px;
+   }
+
+   form {
+    margin-left: 300px;
    }
    
    input[type="text"] {
@@ -59,39 +119,31 @@ body {
     padding: 5px 10px;
    }
    
-   #currentWeatherData {
-    margin-bottom: 20px;
-   }
-   
-   #forecastData {
-
-    display: grid;
-    margin-bottom: 0%;
-    grid-gap: 1px;
-   }
-   
    .forecast-day {
 
     padding-left: 10px;
-    border: 1px solid #2c3e50;
     cursor: pointer;
-    width: 500px;
+    width: 300px;
    }
 
    .selected {
     background-color: #ccc;
    }
    
-   .container div {
-    float: left;
-    margin-bottom: 1px;
-    margin-right: 30px;
+   .container{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    margin-left: 300px;
+    margin-right: 300px;
+    background-color: #ffffff;
    }
    .current {
-    width: 30%;
-    margin-left: 50px
+    font-size: 13px;
+    margin-bottom: 20px;
+    line-height: 10px;
    }
    .forec {
-    float: left;
-    width: 60%;
+
+    margin-bottom: 0%;
    }

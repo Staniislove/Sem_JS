@@ -7,8 +7,6 @@ document.getElementById("searchForm").addEventListener("submit", function(event)
    });
    
    function getCurrentWeather(city) {
-    // Здесь нужно использовать OpenWeather API для получения данных о погоде на данный момент
-    // Пример запроса к API (здесь используется fetch API)
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=036950c45dcd417d392bcf0ebbbbe1cc`)
      .then(response => response.json())
      .then(data => {
@@ -31,21 +29,24 @@ document.getElementById("searchForm").addEventListener("submit", function(event)
     let cityName = data.name;
     let temperature = Math.round(data.main.temp - 273.15);
     let description = data.weather[0].description;
+    let feelsLike = Math.round(data.main.feels_like - 273.15);
+    let wind = data.wind.speed;
+    let humidity = data.main.humidity;
+    let country = data.sys.country;
    
     let weatherElement = document.createElement("div");
     weatherElement.innerHTML = `
-           <h2>Погода сейчас</h2>
-           <p>${month}/${day}, ${time}</p>
-           <h3>${cityName}</h3>
+           <h2>${month}/${day}, ${time}</h2>
+           <h3>${cityName}, ${country}</h3>
            <h1>${temperature}°C</h1>
-           <p>${description}</p>`;
+           <h4>Feels like ${feelsLike}°C. ${description}</h4>
+           <p>Wind: ${wind}m/s</p>
+           <p>Humidity: ${humidity}%</p>`;
    
     currentWeatherData.appendChild(weatherElement);
    }
    
    function getForecast(city) {
-    // Здесь нужно использовать OpenWeather API для получения прогноза погоды на 8 дней
-    // Пример запроса к API (здесь используется fetch API)
     fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=036950c45dcd417d392bcf0ebbbbe1cc`)
      .then(response => response.json())
      .then(data => {
@@ -58,7 +59,7 @@ document.getElementById("searchForm").addEventListener("submit", function(event)
    
    function displayForecast(data) { 
        let forecastData = document.getElementById("forecastData"); 
-       forecastData.innerHTML = ``; 
+       forecastData.innerHTML = `<h3>5-day forecast</h3>`; 
      
        for (i = 0; i < 40; i++) { 
          let forecast = data.list[i]; 
@@ -68,21 +69,21 @@ document.getElementById("searchForm").addEventListener("submit", function(event)
          let time = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }); 
          if (time != '13:00') continue; 
          let temperature = Math.round(forecast.main.temp - 273.15); 
-         let description = forecast.weather[0].description; 
+         let description = forecast.weather[0].description;
      
          let forecastElement = document.createElement("div"); 
          forecastElement.classList.add("forecast-day"); 
-         forecastElement.innerHTML = `<p>${month}/${day} ${time} ${temperature}°C ${description}</p>`; 
+         forecastElement.innerHTML = `<p>${month}/${day} ${temperature}°C ${description}</p>`; 
      
          forecastElement.onclick = function() {
-           getDetailedForecast(forecastElement);
+           getDetailedForecast(forecast, forecastElement);
          };
      
          forecastData.appendChild(forecastElement); 
        } 
      }
      
-     function getDetailedForecast(element) {
+     function getDetailedForecast(forecast, element) {
        let details = element.nextElementSibling;
 
        if (details && details.classList.contains("details")) {
@@ -91,7 +92,14 @@ document.getElementById("searchForm").addEventListener("submit", function(event)
        else {
          details = document.createElement("div");
          details.classList.add("details");
-         details.innerHTML = "Детальная информация";
+         let feelsLike = Math.round(forecast.main.feels_like - 273.15);
+         let wind = forecast.wind.speed;
+         let humidity = forecast.main.humidity;
+         details.innerHTML = `
+                     <p>Feels like: ${feelsLike}°C</p>
+                     <p>Wind: ${wind}m/s</p>
+                     <p>Humidity: ${humidity}%</p>
+         `;
      
          element.insertAdjacentElement("afterend", details);
        }
