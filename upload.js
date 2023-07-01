@@ -56,31 +56,43 @@ document.getElementById("searchForm").addEventListener("submit", function(event)
      });
    }
    
-   function displayForecast(data) {
-    let forecastData = document.getElementById("forecastData");
-    forecastData.innerHTML = ``;
+   function displayForecast(data) { 
+       let forecastData = document.getElementById("forecastData"); 
+       forecastData.innerHTML = ``; 
+     
+       for (i = 0; i < 40; i++) { 
+         let forecast = data.list[i]; 
+         let date = new Date(forecast.dt * 1000); 
+         let month = date.getMonth() + 1; 
+         let day = date.getDate(); 
+         let time = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }); 
+         if (time != '13:00') continue; 
+         let temperature = Math.round(forecast.main.temp - 273.15); 
+         let description = forecast.weather[0].description; 
+     
+         let forecastElement = document.createElement("div"); 
+         forecastElement.classList.add("forecast-day"); 
+         forecastElement.innerHTML = `<p>${month}/${day} ${time} ${temperature}°C ${description}</p>`; 
+     
+         forecastElement.onclick = function() {
+           getDetailedForecast(forecastElement);
+         };
+     
+         forecastData.appendChild(forecastElement); 
+       } 
+     }
+     
+     function getDetailedForecast(element) {
+       let details = element.nextElementSibling;
 
-    for ( i=0; i < 40; i++ ) {
-     let forecast = data.list[i];
-     let date = new Date(forecast.dt * 1000);
-     let month = date.getMonth() + 1;
-     let day = date.getDate();
-     let time = date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-     if (time != '13:00') continue;
-     let temperature = Math.round(forecast.main.temp - 273.15);
-     let description = forecast.weather[0].description;
-   
-     let forecastElement = document.createElement("div");
-     forecastElement.classList.add("forecast-day");
-     forecastElement.innerHTML = `
-            <p>${month}/${day} ${time} ${temperature}°C ${description}</p>`;
-     forecastData.appendChild(forecastElement);
-     forecastElement.addEventListener("click", () => {
-      getDetailedForecast(data, i);
-     })
-    }
-}
-
-   function getDetailedForecast(){
-
-   }
+       if (details && details.classList.contains("details")) {
+         details.remove();
+       } 
+       else {
+         details = document.createElement("div");
+         details.classList.add("details");
+         details.innerHTML = "Детальная информация";
+     
+         element.insertAdjacentElement("afterend", details);
+       }
+     }
