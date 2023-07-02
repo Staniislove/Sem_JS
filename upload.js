@@ -4,6 +4,7 @@ document.getElementById("searchForm").addEventListener("submit", function(event)
     let city = document.getElementById("cityInput").value;
     getCurrentWeather(city);
     getForecast(city);
+    getHourly(city);
    });
    
    function getCurrentWeather(city) {
@@ -104,6 +105,43 @@ document.getElementById("searchForm").addEventListener("submit", function(event)
          element.insertAdjacentElement("afterend", details);
        }
      }
+
+     function getHourly(city){
+      fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=036950c45dcd417d392bcf0ebbbbe1cc`)
+     .then(response => response.json())
+     .then(data => {
+      displayHourly(data);
+     })
+     .catch(error => {
+      console.log(error);
+     });
+     }
+
+     function displayHourly(data){
+      let hourlyData = document.getElementById("hourlyData"); 
+       hourlyData.innerHTML = ``; 
+     
+       for (i = 0; i < 8; i++) { 
+         let forecast = data.list[i]; 
+         let date = new Date(forecast.dt * 1000); 
+         let time = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }); 
+         let temperature = Math.round(forecast.main.temp - 273.15); 
+         let description = forecast.weather[0].description;
+         let wind = forecast.wind.speed;
+     
+         let hourlyElement = document.createElement("div");
+         hourlyElement.classList.add("hourlyElement"); 
+         hourlyElement.innerHTML = `
+                <h2>${time} </h2>
+                <h4>${temperature}°C</h4>
+                <p>${description}</p>
+                <p>Wind: ${wind}m/s</p>`; 
+     
+         hourlyData.appendChild(hourlyElement); 
+       } 
+     }
+
+
      function login(){
       var username = document.getElementById("username").value;    
       if (username !== "") {
@@ -114,7 +152,7 @@ document.getElementById("searchForm").addEventListener("submit", function(event)
         document.getElementById("main-page").style.display = "block";
         
         let helloElement = document.createElement("div");
-        helloElement.innerHTML = `<p>Привет, ${username} !<p>`;
+        helloElement.innerHTML = `<p>Hello, ${username} !<p>`;
         helloData.appendChild(helloElement);
       }
     }

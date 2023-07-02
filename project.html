@@ -5,15 +5,15 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <div id="login-page" class="logpage">
+  <div id="login-page">
     <div class="form">
         <div class="vh">
-          <p>Вход</p>
+          <p>Log in</p>
         </div>
         <div class="inp">
-          <input type="text" id="username" placeholder="Имя пользователя">
+          <input type="text" id="username" placeholder="Your name">
         </div>
-        <button onclick="login()">Войти</button>
+        <button onclick="login()">Continue</button>
     </div>
   </div>
   <div id="main-page">
@@ -31,28 +31,33 @@
         <button onclick="logout()">Exit</button>
       </div>
     </header>
-    <div class = "searchLine">
-      <form id="searchForm">
-        <input type="text" id="cityInput" placeholder="Search city" required>
-        <button type="submit">Search</button>
-        <script src="upload.js"></script>
-      </form>
-    </div>
     <div class="main">
+      <div class = "searchLine">
+        <form id="searchForm">
+          <input type="text" id="cityInput" placeholder="Search city" required>
+          <button type="submit">Search</button>
+          <script src="upload.js"></script>
+        </form>
+      </div>
       <div class = "container">
         <div class = "current">
           <div id="currentWeather">
             <div id="currentWeatherData"></div>
           </div>
         </div>
-        <div class = "forec">
-          <div id="forecast">
-            <div id="forecastData"></div>
+        <div class="hourly">
+          <div id="hourlyforecast">
+            <div id="hourlyData"></div>
           </div>
         </div>
       </div>
+      <div class = "forec">
+        <div id="forecast">
+          <div id="forecastData"></div>
+        </div>
+      </div>
     </div>
-    <footer>
+    <footer class="footer">
       <div class = "author">
         <p1>Staniislove</p1>
       </div>
