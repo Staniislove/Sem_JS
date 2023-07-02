@@ -44,33 +44,33 @@ header {
 }
 
 .main{
-flex-grow: 1;
-min-height: 67vh;
+  flex-grow: 1;
+  min-height: 67vh;
 }
 
 footer{
- display:flex;
- justify-content: right;
- align-items: center;
- margin-bottom: 0;
- background-color: rgb(235, 235, 235);
- height: 60px;
- padding: 10px;
+  display:flex;
+  justify-content: right;
+  align-items: center;
+  margin-bottom: 0;
+  background-color: rgb(235, 235, 235);
+  height: 60px;
+  padding: 10px;
 }
 
  .git img {
-  height: 40px;
+   height: 40px;
  }
 
  .git{
-  text-align: center;
-  cursor:pointer;
+   text-align: center;
+   cursor:pointer;
  }
  
  .author{
-  font-size: 15px;
-  text-align: center;
-  margin-right: 5px;
+   font-size: 15px;
+   text-align: center;
+   margin-right: 5px;
  }
 
 #login-page{
@@ -149,8 +149,6 @@ body {
    }
    
    .forecast-day {
-
- 
     cursor: pointer;
     width: 400px;
    }
@@ -172,7 +170,6 @@ body {
     line-height: 10px;
    }
    .forec {
-
     margin-bottom: 0%;
    }
    .hourly{
