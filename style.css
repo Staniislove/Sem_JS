@@ -1,3 +1,28 @@
+#login-page{
+  display:flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  height: 100%;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  line-height: 0;
+}
+.vh{
+  margin-bottom: 10px;
+}
+
+.inp{
+  margin-bottom: 20px;
+}
+
 html {
   height: 100%;
 }

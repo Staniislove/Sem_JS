@@ -104,3 +104,23 @@ document.getElementById("searchForm").addEventListener("submit", function(event)
          element.insertAdjacentElement("afterend", details);
        }
      }
+     function login(){
+      var username = document.getElementById("username").value;    
+      if (username !== "") {
+        let helloData = document.getElementById("helloData");
+        helloData.innerHTML = "";
+
+        document.getElementById("login-page").style.display = "none";
+        document.getElementById("main-page").style.display = "block";
+        
+        let helloElement = document.createElement("div");
+        helloElement.innerHTML = `<p>Привет, ${username} !<p>`;
+        helloData.appendChild(helloElement);
+      }
+    }
+    
+    function logout(){
+      document.getElementById("username").value = "";
+      document.getElementById("login-page").style.display = "block";
+      document.getElementById("main-page").style.display = "none";
+    }
