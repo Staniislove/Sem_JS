@@ -126,7 +126,7 @@ document.getElementById("searchForm").addEventListener("submit", function(event)
               <h2>${time} </h2>
               <h4>${temperature}°C</h4>
               <p>${description}</p>
-              <p>Wind:${wind}m/s</p>`; 
+              <p>${wind}m/s</p>`; 
      
       hourlyData.appendChild(hourlyElement); 
     } 
