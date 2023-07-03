@@ -10,7 +10,7 @@ document.getElementById("searchForm").addEventListener("submit", function(event)
   function getCurrentWeather(city) {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=036950c45dcd417d392bcf0ebbbbe1cc`)
     .then(response => response.json())
-    .then(data => displayCurrentWeather(data));
+    .then(data => displayCurrentWeather(data)); 
   }
    
   function displayCurrentWeather(data) {
@@ -130,7 +130,7 @@ document.getElementById("searchForm").addEventListener("submit", function(event)
   function login(){
     var username = document.getElementById("username").value;    
     
-    if (username !== "") {
+    if (username != "") {
       let helloData = document.getElementById("helloData");
       helloData.innerHTML = "";
 
