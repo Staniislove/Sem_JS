@@ -10,9 +10,7 @@ document.getElementById("searchForm").addEventListener("submit", function(event)
   function getCurrentWeather(city) {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=036950c45dcd417d392bcf0ebbbbe1cc`)
     .then(response => response.json())
-    .then(data => {
-      displayCurrentWeather(data);
-    });
+    .then(data => displayCurrentWeather(data));
   }
    
   function displayCurrentWeather(data) {
@@ -47,9 +45,7 @@ document.getElementById("searchForm").addEventListener("submit", function(event)
   function getForecast(city) {
     fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=036950c45dcd417d392bcf0ebbbbe1cc`)
     .then(response => response.json())
-    .then(data => {
-      displayForecast(data);
-    });
+    .then(data => displayForecast(data));
   }
    
   function displayForecast(data) { 
@@ -103,9 +99,7 @@ document.getElementById("searchForm").addEventListener("submit", function(event)
   function getHourly(city){
     fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=036950c45dcd417d392bcf0ebbbbe1cc`)
     .then(response => response.json())
-    .then(data => {
-      displayHourly(data);
-    });
+    .then(data => displayHourly(data));
   }
 
   function displayHourly(data){
