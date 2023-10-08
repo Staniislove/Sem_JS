@@ -72,19 +72,20 @@ header {
   cursor: pointer;
 }
 .main{
-flex-grow: 1;
-min-height: 67vh;
+  flex-grow: 1;
+  min-height: 67vh;
 }
 
 footer{
- display:flex;
- justify-content: right;
- align-items: center;
- margin-bottom: 0;
- background-color: rgb(235, 235, 235);
- height: 60px;
- padding: 10px;
+  display:flex;
+  justify-content: right;
+  align-items: center;
+  margin-bottom: 0;
+  background-color: rgb(235, 235, 235);
+  height: 60px;
+  padding: 10px;
 }
+<<<<<<< HEAD
 .git img {
   height: 40px;
 }
@@ -96,6 +97,32 @@ footer{
   font-size: 15px;
   text-align: center;
   margin-right: 5px;
+}
+=======
+
+ .git img {
+   height: 40px;
+ }
+
+ .git{
+   text-align: center;
+   cursor:pointer;
+ }
+ 
+ .author{
+   font-size: 15px;
+   text-align: center;
+   margin-right: 5px;
+ }
+
+#login-page{
+  display:flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  height: 100%;
+>>>>>>> ac2ab1b94c98bfe055eebbf3d2b17134a5a0df0e
 }
    
   h1 {
@@ -147,7 +174,11 @@ footer{
     padding: 5px 10px;
   }
    
+<<<<<<< HEAD
   .forecast-day {
+=======
+   .forecast-day {
+>>>>>>> ac2ab1b94c98bfe055eebbf3d2b17134a5a0df0e
     cursor: pointer;
   }
 
@@ -166,8 +197,13 @@ footer{
     font-size: 13px;
     margin-bottom: 20px;
     line-height: 10px;
+<<<<<<< HEAD
   }
   .forec {
+=======
+   }
+   .forec {
+>>>>>>> ac2ab1b94c98bfe055eebbf3d2b17134a5a0df0e
     margin-bottom: 0%;
   }
   .hourly{
@@ -182,7 +218,7 @@ footer{
     margin-right: 200px;
   }
   .hourlyElement {
-    width: 40px;
+    width: 45px;
     padding: 10px;
     border: 1px solid #ccc;
   }
