@@ -1,3 +1,35 @@
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+}
+
+#login-page{
+  display:flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  height: 100%;
+}
+.form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  line-height: 0;
+}
+.vh{
+  margin-bottom: 10px;
+}
+.inp{
+  margin-bottom: 20px;
+} 
+
 #main-page{
   display:flex;
   flex-direction: column;
@@ -16,7 +48,6 @@ header {
   margin: 0;
   margin-bottom: 10px;
 }
-
 .logo img {
   height: 60px;
 }
@@ -25,7 +56,6 @@ header {
   font-size: 20px;
   text-align: center;
 }
-
 .hello {
   flex-grow: 1;
   text-align: center;
@@ -33,7 +63,6 @@ header {
   color: #ffffff;
   font-size: 30px;
 }
-
 .logout button {
   background-color: #dad2d2;
   color: #0f0d0d;
@@ -42,7 +71,6 @@ header {
   border-radius: 10px;
   cursor: pointer;
 }
-
 .main{
 flex-grow: 1;
 min-height: 67vh;
@@ -57,136 +85,102 @@ footer{
  height: 60px;
  padding: 10px;
 }
-
- .git img {
+.git img {
   height: 40px;
- }
-
- .git{
+}
+.git{
   text-align: center;
   cursor:pointer;
- }
- 
- .author{
+}
+.author{
   font-size: 15px;
   text-align: center;
   margin-right: 5px;
- }
-
-#login-page{
-  display:flex;
-  flex-direction: column;
-  min-height: 100vh;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  height: 100%;
 }
-
-.form{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  line-height: 0;
-}
-.vh{
-  margin-bottom: 10px;
-}
-
-.inp{
-  margin-bottom: 20px;
-}
-
-html {
-  height: 100%;
-}
-
-body {
-  margin: 0;
-  height: 100%;
- }
    
-   h1, h3 {
+  h1 {
     color: #333;
-   }
-
-   h1{
     line-height: 40px;
-   }
+  }
+  
+  h3 {
+    color: #333;
+    font-size: 30px;
+  }
 
-   h4{
+  h4{
     color:#2c3e50;
     font-size: 15px;
-   }
+  }
 
-   h2{
+  h2{
     color:#2c58aa;
     font-size: 15px;
     font-weight:lighter;
-   }
+  }
+
+  h6{
+    color: #333;
+    font-size: 20px;
+    line-height: 25px;
+  }
    
-   .searchLine{
+  .searchLine{
     display:flex;
     align-items: center;
     height:80px;
     background-color: rgb(235, 235, 235);
     margin-bottom: 10px;
-   }
+  }
 
-   form {
+  form {
     margin-left: 200px;
-   }
+  }
    
-   input[type="text"] {
+  input[type="text"] {
     width: 200px;
     padding: 5px;
     margin-right: 10px;
-   }
+  }
    
-   button {
+  button {
     padding: 5px 10px;
-   }
+  }
    
-   .forecast-day {
-
- 
+  .forecast-day {
     cursor: pointer;
-    width: 400px;
-   }
+  }
 
-   .selected {
+  .forecast-day:hover {
     background-color: #ccc;
-   }
+  }
    
-   .container{
+  .container{
     display: flex;
     flex-direction: row;
     justify-content:space-between;
     margin-left: 200px;
     margin-right: 0px;
-   }
-   .current {
+  }
+  .current {
     font-size: 13px;
     margin-bottom: 20px;
     line-height: 10px;
-   }
-   .forec {
-
+  }
+  .forec {
     margin-bottom: 0%;
-   }
-   .hourly{
+  }
+  .hourly{
     font-size: 13px;
-   }
-   #hourlyData{
+  }
+  #hourlyData{
     display: flex;
     flex-direction: row;
     grid-template-columns: repeat(8, 1fr);
     grid-gap: 5px;
     margin-bottom: 20px;
     margin-right: 200px;
-   }
-  
+  }
   .hourlyElement {
     width: 40px;
     padding: 10px;

@@ -1,0 +1,20 @@
+{
+  "name": "smilecloud",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "mordv",
+  "license": "ISC",
+  "devDependencies": {
+    "mime-types": "^2.1.35"
+  },
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "http": "^0.0.1-security",
+    "node-fetch": "^3.3.2"
+  }
+}
