@@ -48,37 +48,37 @@ async function displayCurrentWeather(city) {
   }
 }
    
-  async function displayForecast(city) { 
-    let forecastData = document.getElementById("forecastData"); 
-    forecastData.innerHTML = `<h6>5-day forecast</h6>`; 
-    
-    const forecastjson = new forecastJson()
+async function displayForecast(city) {
+  let forecastData = document.getElementById("forecastData");
+  forecastData.innerHTML = "<h5>5-day forecast</h5>";
 
-    forecastjson.fetchData(city)
+  const forecastjson = new forecastJson();
+
+  forecastjson.fetchData(city)
     .then(() => {
       for (let i = 0; i < 40; i++) {
         let forecast = forecastjson.json.list[i];
-        let date = new Date(forecast.dt * 1000); 
-        let month = date.getMonth() + 1; 
-        let day = date.getDate(); 
+        let date = new Date(forecast.dt * 1000);
+        let month = date.getMonth() + 1;
+        let day = date.getDate();
         let time = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
         if (time != '13:00') continue;
-        let temperature = Math.round(forecast.main.temp - 273.15); 
+        let temperature = Math.round(forecast.main.temp - 273.15);
         let description = forecast.weather[0].description;
-        
-        let forecastElement = document.createElement("div"); 
-        forecastElement.classList.add("forecast-day"); 
-        forecastElement.innerHTML = `<p>${month}/${day} ${temperature}°C ${description}</p>`; 
-     
+
+        let forecastElement = document.createElement("div");
+        forecastElement.classList.add("forecast-day");
+        forecastElement.innerHTML = `<p>${month}/${day} ${temperature}°C ${description} <span class="arrow-down">▼</span></p>`;
+
         forecastElement.onclick = function() {
           getDetailedForecast(forecast, forecastElement);
         };
-     
-        forecastData.appendChild(forecastElement); 
+
+        forecastData.appendChild(forecastElement);
       }
     })
-  }
+}
   
   async function displayHourly(city){
     let hourlyData = document.getElementById("hourlyData"); 
@@ -110,22 +110,23 @@ async function displayCurrentWeather(city) {
 
   function getDetailedForecast(forecast, element) {
     let details = element.nextElementSibling;
-
+  
     if (details && details.classList.contains("details")) {
       details.remove();
-    } 
-    else {
+      element.querySelector(".arrow-down").textContent = "▼"; 
+    } else {
       details = document.createElement("div");
       details.classList.add("details");
       let feelsLike = Math.round(forecast.main.feels_like - 273.15);
       let wind = forecast.wind.speed;
       let humidity = forecast.main.humidity;
       details.innerHTML = `
-              <p>Feels like: ${feelsLike}°C</p>
-              <p>Wind: ${wind}m/s</p>
-              <p>Humidity: ${humidity}%</p>`;
-     
+        <p>Feels like: ${feelsLike}°C</p>
+        <p>Wind: ${wind}m/s</p>
+        <p>Humidity: ${humidity}%</p>`;
+  
       element.insertAdjacentElement("afterend", details);
+      element.querySelector(".arrow-down").textContent = "▲";
     }
   }
 
