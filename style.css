@@ -99,7 +99,6 @@ footer{
   margin-right: 5px;
 }
 
-
  .git img {
    height: 40px;
  }
@@ -193,10 +192,92 @@ footer{
     margin-bottom: 20px;
     line-height: 10px;
   }
+  .container2{
+    margin-bottom: 0%;
+    display:flex;
+    justify-content: space-between;
+
+  }
+
    .forec {
     margin-bottom: 0%;
     display: inline-block;
   }
+
+  #sky {
+    margin-right: 200px; 
+    flex:1;
+    position:relative;
+    margin-bottom: 0%;
+    display: flex;
+    align-items: end;
+    width: 500px;
+    height: 300px;
+    background-color: #87CEEB; /* Светло голубой */
+    animation-duration: 13s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    margin-left: 200px;
+    animation-name: daynight;
+  }
+  
+  #circle {
+    bottom: 0;
+    background: yellow;
+    border-radius: 50%;
+    height: 5em;
+    width: 5em;
+    animation-name: move;
+    animation-duration: 6s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+
+  @keyframes daynight {
+    0% {
+      background-color: #87CEEB;
+    }
+    14% {
+      background-color: #598cec;
+    }
+    28% {
+      background-color: #091074;
+    }
+    42% {
+        background-color: #030229;
+      }
+    56% {
+        background-color: #030229;
+    }
+    70% {
+        background-color: #091074;
+    }
+    84% {
+        background-color: #598cec;
+      }
+    100% {
+        background-color: #87CEEB;
+    }
+  }
+  @keyframes move {
+    0% {
+      transform: translate(0%, 0%);
+    }
+    25% {
+      transform: translate(150%, -140%);
+    }
+    50% {
+      transform: translate(300%, -280%);
+    }
+    100% {
+      transform: translate(450%, -140%);
+    }
+    100% {
+      transform: translate(510%, 0%);
+    }
+  }
+
   .hourly{
     font-size: 13px;
   }

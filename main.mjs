@@ -78,6 +78,7 @@ async function displayForecast(city) {
         forecastData.appendChild(forecastElement);
       }
     })
+    document.getElementById("animation").style.display =  "block";
 }
   
   async function displayHourly(city){
